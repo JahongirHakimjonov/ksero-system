@@ -1,5 +1,5 @@
 {
-  description = "Dev shell with hello, Go, Python";
+  description = "Dev shell with Go, Python, and some pip-installed extras";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -8,11 +8,12 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
 
-      pythonEnv = pkgs.python3.withPackages (ps: with ps; [
-        pypdf2     # <-- lowercase
-        pywin32
+      python = pkgs.python3;
+      pythonEnv = python.withPackages (ps: with ps; [
+        pypdf2
         colorlog
         pillow
+        virtualenv  # <-- kerakli
       ]);
     in {
       devShells.${system}.default = pkgs.mkShell {
@@ -24,9 +25,17 @@
         shellHook = ''
           echo "🛠️  Welcome to your full dev shell, Ryan Gosling"
 
-          # Install pytwain via pip, since it's not in nixpkgs
-          python -m ensurepip --upgrade
-          pip install --user pytwain
+          # virtualenv yaratish
+          if [ ! -d ".venv" ]; then
+            python -m virtualenv .venv
+          fi
+
+          source .venv/bin/activate
+
+          # pip install only if not installed
+          if ! pip show pytwain >/dev/null 2>&1; then
+            pip install pytwain
+          fi
         '';
       };
     };
