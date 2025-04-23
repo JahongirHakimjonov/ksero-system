@@ -9,8 +9,7 @@
       pkgs = import nixpkgs { inherit system; };
 
       pythonEnv = pkgs.python3.withPackages (ps: with ps; [
-        pytwain
-        PyPDF2
+        pypdf2     # <-- lowercase
         pywin32
         colorlog
         pillow
@@ -24,6 +23,10 @@
         ];
         shellHook = ''
           echo "🛠️  Welcome to your full dev shell, Ryan Gosling"
+
+          # Install pytwain via pip, since it's not in nixpkgs
+          python -m ensurepip --upgrade
+          pip install --user pytwain
         '';
       };
     };
