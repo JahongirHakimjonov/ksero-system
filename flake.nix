@@ -13,7 +13,7 @@
         pypdf2
         colorlog
         pillow
-        virtualenv  # <-- kerakli
+        virtualenv
       ]);
     in {
       devShells.${system}.default = pkgs.mkShell {
