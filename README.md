@@ -20,7 +20,7 @@ A lightweight Python service to manage printer operations: **Scan**, **Copy**, a
 
 ## 📋 Requirements
 
-- Python 3.10+
+- Python 3.12+
 - Windows OS (with printer properly installed and accessible)
 - A `config.json` file with your printer configuration
 
