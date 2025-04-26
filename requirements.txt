@@ -1,4 +1,4 @@
-PyPDF2
-pywin32
-colorlog
-pillow
+PyPDF2==3.0.1
+pywin32==310
+colorlog==6.9.0
+pillow==11.2.1
