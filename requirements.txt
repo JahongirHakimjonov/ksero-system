@@ -1,4 +1,3 @@
-pytwain
 PyPDF2
 pywin32
 colorlog
