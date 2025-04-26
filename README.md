@@ -94,6 +94,12 @@ Planned CLI support:
 python main.py --type PRINT --file_path "D:\docs\test.pdf" --pages "1-2"
 ```
 
+For more information use this command:
+
+```bash
+python main.py --help
+```
+
 _(Not available yet — currently interactive mode only.)_
 
 ---
