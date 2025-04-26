@@ -52,10 +52,14 @@ def controller():
 
     elif event_type == EventType.COPY:
         copies = get_copies()
-        service.print_file(copies=copies, event_type=EventType.PRINT)
+        service.print_file(copies=copies, event_type=EventType.COPY)
 
     elif event_type == EventType.PRINT:
         file_path, pages = get_print_details()
-        service.print_file(file_path=file_path, event_type=EventType.PRINT, pages=pages)
+        service.print_file(
+            file_path=file_path,
+            pages=None if pages == "all" else pages
+        )
 
-    logger.info("Operation completed.")
+
+logger.info("Operation completed.")
