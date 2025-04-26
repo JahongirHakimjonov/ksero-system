@@ -1,3 +1,4 @@
+import argparse
 import json
 
 from src.services.core import PrinterService
@@ -14,30 +15,15 @@ def load_printer_name(config_path: str) -> str:
         raise RuntimeError(f"Configni o'qishda xatolik: {e}")
 
 
-def get_event_type() -> EventType:
-    type_input = input("Type kiriting (SCAN, COPY, PRINT): ").strip().upper()
-    try:
-        return EventType(type_input)
-    except ValueError:
-        logger.error(f"Noto'g'ri type kiritildi: {type_input}")
-        exit(1)
-
-
-def get_copies() -> int:
-    try:
-        return int(input("Nechta nusxa kerak? (copies count): "))
-    except ValueError:
-        logger.error("Noto'g'ri raqam kiritildi.")
-        exit(1)
-
-
-def get_print_details() -> tuple[str, str]:
-    pages = input("Nechta sahifa chop etilsin? (pages): ").strip()
-    file_path = input("Fayl manzilini kiriting (file_path): ").strip()
-    return file_path, pages
-
-
 def controller():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--type', required=True, choices=['SCAN', 'COPY', 'PRINT'], help='Event type')
+    parser.add_argument('--file_path', required=False, help='Path to the PDF file')
+    parser.add_argument('--pages', required=False, help='Pages to print (e.g., "1-2" or "all")')
+    parser.add_argument('--copies', required=False, type=int, help='Number of copies')
+
+    args = parser.parse_args()
+
     printer_name = load_printer_name('config/config.json')
     if not printer_name:
         raise ValueError("Configda 'printer_name' topilmadi.")
@@ -45,21 +31,28 @@ def controller():
     logger.info("Starting printer service...")
 
     service = PrinterService(printer_name)
-    event_type = get_event_type()
+    event_type = EventType(args.type)
 
     if event_type == EventType.SCAN:
         service.print_file(event_type=EventType.SCAN)
 
     elif event_type == EventType.COPY:
-        copies = get_copies()
+        copies = args.copies
+        if copies is None:
+            logger.error("COPY uchun --copies parametri berilmagan.")
+            exit(1)
         service.print_file(copies=copies, event_type=EventType.COPY)
 
     elif event_type == EventType.PRINT:
-        file_path, pages = get_print_details()
+        file_path = args.file_path
+        pages = args.pages
+        if not file_path:
+            logger.error("PRINT uchun --file_path parametri berilmagan.")
+            exit(1)
+
         service.print_file(
             file_path=file_path,
             pages=None if pages == "all" else pages
         )
 
-
-logger.info("Operation completed.")
+    logger.info("Operation completed.")
