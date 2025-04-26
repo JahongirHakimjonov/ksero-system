@@ -130,7 +130,29 @@ _(Not available yet — currently interactive mode only.)_
 
 ## 👨‍💻 Author
 
-**Ryan Gosling** — Backend Developer
+**Jahongir Hakimjonov** — Backend Developer
+
+## Contact
+
+Please contact Jahongir Hakimjonov with any questions or concerns regarding this project.
+
+- [GitHub](https://github.com/JahongirHakimjonov)
+- [Instagram](https://www.instagram.com/ja_kahn_gir/)
+- [Telegram](https://t.me/jakhangir_blog)
+
+<a href="https://pypi.org/project/django-default/">
+    <img src="https://i0.wp.com/securityaffairs.com/wp-content/uploads/2021/08/PyPI.png?ssl=1" width="200" height="90" alt="pypi">
+</a>
+
+# Donate
+- [Buy Me Coffee](https://buymeacoffee.com/ja_khan_gir)
+
+- [Tirikchilik](https://tirikchilik.uz/ja_khan_gir)
+
+
+<a href="https://buymeacoffee.com/ja_khan_gir">
+    <img src="https://i.postimg.cc/cLwdq9pL/bmc-qr-2.png" width="200" height="200" alt="pypi">
+</a>
 
 ---
 
