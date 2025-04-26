@@ -140,10 +140,6 @@ Please contact Jahongir Hakimjonov with any questions or concerns regarding this
 - [Instagram](https://www.instagram.com/ja_kahn_gir/)
 - [Telegram](https://t.me/jakhangir_blog)
 
-<a href="https://pypi.org/project/django-default/">
-    <img src="https://i0.wp.com/securityaffairs.com/wp-content/uploads/2021/08/PyPI.png?ssl=1" width="200" height="90" alt="pypi">
-</a>
-
 # Donate
 - [Buy Me Coffee](https://buymeacoffee.com/ja_khan_gir)
 
