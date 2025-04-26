@@ -101,16 +101,21 @@ _(Not available yet — currently interactive mode only.)_
 ## 📂 Project Structure
 
 ```bash
-src/
-  services/
-    core.py        # PrinterService class
-  utils/
-    enum.py        # EventType definitions
-    logger.py      # Central logger setup
-config.json         # Configuration file
-main.py             # Entry point
-requirements.txt    # Dependencies
-README.md           # Project documentation
+├── config/                # Configuration files (e.g., config.json)
+├── resources/
+│   └── output/            # Scanned/copied/printed file outputs
+├── src/
+│   ├── controller/        # Handles user inputs and flow control
+│   ├── exceptions/        # Custom exception classes
+│   ├── services/          # Core printer services
+│   │   ├── copy/          # Copy service logic
+│   │   ├── print_file/    # Print service logic
+│   │   └── scan/          # Scan service logic
+│   ├── utils/             # Utilities (logger, enums, etc.)
+│   └── __pycache__/       # Python cache files (ignored)
+├── main.py                # Application entry point
+├── requirements.txt       # Python dependencies
+└── README.md              # Project documentation
 ```
 
 ---
