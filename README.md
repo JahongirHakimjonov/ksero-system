@@ -31,7 +31,7 @@ A lightweight Python service to manage printer operations: **Scan**, **Copy**, a
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/printer-service.git
+git clone https://github.com/JahongirHakimjonov/printer-service.git
 cd printer-service
 ```
 
