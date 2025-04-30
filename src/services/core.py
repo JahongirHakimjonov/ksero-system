@@ -28,11 +28,11 @@ class PrinterService:
                 raise
 
     def print_file(
-            self,
-            file_path: str = None,
-            pages: str = None,
-            copies: int = 1,
-            event_type: EventType = EventType.PRINT,
+        self,
+        file_path: str = None,
+        pages: str = None,
+        copies: int = 1,
+        event_type: EventType = EventType.PRINT,
     ):
         try:
             if event_type == EventType.SCAN:

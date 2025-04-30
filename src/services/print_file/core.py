@@ -9,9 +9,7 @@ from src.utils.logger import logger
 
 
 def print_file(file_path: str, printer_name: str = None, pages: str = None):
-    logger.info(
-        f"Initiating print job for: {file_path} with {pages or 'all'} pages"
-    )
+    logger.info(f"Initiating print job for: {file_path} with {pages or 'all'} pages")
 
     if not os.path.exists(file_path):
         logger.error(f"File not found: {file_path}")
